@@ -1,0 +1,25 @@
+{
+  "name": "gpx-route-generator-core",
+  "version": "1.0.0",
+  "description": "Core Project for GPX Route Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/3nvy/gpx-route-generator-core.git"
+  },
+  "keywords": [
+    "gpxcore"
+  ],
+  "author": "3nvy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/3nvy/gpx-route-generator-core/issues"
+  },
+  "homepage": "https://gitlab.com/3nvy/gpx-route-generator-core#readme",
+  "dependencies": {
+    "sphere-knn": "^1.4.0"
+  }
+}
