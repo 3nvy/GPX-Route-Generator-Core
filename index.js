@@ -7,7 +7,7 @@ const generateGPX = (
 ${sortedArray
   .map((p) => {
     const [lat, lon] = p.split(",");
-    return `<wpt lat="${lat}" lon="${lon}"></wpt>`;
+    return `<wpt lat="${+lat}" lon="${+lon}"></wpt>`;
   })
   .join("\n")}
 </gpx>`;
@@ -37,4 +37,4 @@ const GetGPXFile = (contents) => {
   return generateGPX(sortedArray);
 };
 
-export default GetGPXFile;
+module.exports = GetGPXFile;
