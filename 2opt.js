@@ -77,8 +77,8 @@ const getPathDistance = (path) => {
 };
 
 const twoOpt = (count) => {
-  for (let i = 0; i < path.length - 2; i++) {
-    for (let j = i + 2; j < path.length - 1; j++) {
+  for (var i = 0; i < path.length - 2; i++) {
+    for (var j = i + 2; j < path.length - 1; j++) {
       if (
         distanceMatrix[path[i]][path[i + 1]] + distanceMatrix[path[j]][path[j + 1]] >
         distanceMatrix[path[i]][path[j]] + distanceMatrix[path[j + 1]][path[i + 1]]
@@ -128,7 +128,7 @@ const iterativeTwoOpt = () => {
     count += 1;
   }
 
-  return [path].map((i) => `${points[i].x}, ${points[i].y}`);
+  return [bestDistance, [...path]];
 };
 
 const sortWith2OPT = (coordsArray, interactionsCount) => {
@@ -155,4 +155,4 @@ const sortWith2OPT = (coordsArray, interactionsCount) => {
   return shortestPath.map((i) => `${points[i].x}, ${points[i].y}`);
 };
 
-module.export = sortWith2OPT;
+module.exports = sortWith2OPT;

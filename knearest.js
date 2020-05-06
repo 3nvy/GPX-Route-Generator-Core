@@ -18,6 +18,8 @@ const sortWithKNearest = (coordsArray) => {
     var index = posArray.reduce((acc, el, i) => (el.toString() === startPoint.toString() ? acc + i : acc), 0);
     posArray.splice(index, 1);
   }
+
+  return sortedArray;
 };
 
-module.export = sortWithKNearest;
+module.exports = sortWithKNearest;
