@@ -4,7 +4,6 @@ let points = [];
 let swaps = [];
 let insertions = [];
 let pathDistances = [];
-let interactions = [];
 let distanceMatrix;
 let N;
 
@@ -140,19 +139,22 @@ const sortWith2OPT = (coordsArray, interactionsCount) => {
   N = points.length;
   generateDistanceMatrix();
 
-  for (i = 0; i < interactionsCount; i++) {
+  var shortestPath;
+
+  for (var i = 0; i < interactionsCount; i++) {
     path = [];
     paths = [];
     swaps = [];
     insertions = [];
     pathDistances = [];
-    interactions.push(iterativeTwoOpt());
+
+    var generatedPath = iterativeTwoOpt();
+
+    if (!shortestPath) shortestPath = generatedPath;
+    else if (shortestPath[0] > generatedPath[0]) shortestPath = generatedPath;
   }
 
-  let minValue = Math.min(...interactions.map((a) => a[0]));
-  let shortestPath = interactions.find((i) => i[0] === minValue)[1];
-
-  return shortestPath.map((i) => `${points[i].x}, ${points[i].y}`);
+  return shortestPath[1].map((i) => `${points[i].x}, ${points[i].y}`);
 };
 
 module.exports = sortWith2OPT;
