@@ -1,6 +1,10 @@
 var sortWith2OPT = require("./2opt");
 var sortWithKNearest = require("./knearest");
 
+function onlyUnique(value, index, self) {
+  return self.indexOf(value) === index;
+}
+
 const generateGPX = (sortedArray) => `<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <gpx version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
 ${sortedArray
@@ -12,7 +16,8 @@ ${sortedArray
 </gpx>`;
 
 const GetGPXFile = (contents, type, interactionsCount = 1) => {
-  const coordsArray = contents.split("\n");
+  const coordsArray = contents.split("\n").filter(onlyUnique);
+
   let sortedArray;
 
   switch (type) {
