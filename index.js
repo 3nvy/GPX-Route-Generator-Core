@@ -1,5 +1,5 @@
-var sortWith2OPT = require("./2opt");
-var sortWithKNearest = require("./knearest");
+const sortWith2OPT = require("./2opt");
+const sortWithKNearest = require("./knearest");
 
 function onlyUnique(value, index, self) {
   return self.indexOf(value) === index;
